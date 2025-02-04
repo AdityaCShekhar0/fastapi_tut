@@ -11,14 +11,3 @@ templates = Jinja2Templates(directory="templates")
 
 conn=MongoClient("mongodb://localhost:27017/")
 
-@app.get("/", response_class=HTMLResponse)
-async def read_item(request: Request):
-    docs=conn.test.test.find({})
-    newDocs=[]
-    for doc in docs:
-        print(doc)
-        newDocs.append({
-            "_id":doc["_id"],
-            "note":doc["note"]
-        })
-    return templates.TemplateResponse("index.html", {"request": request, "newDocs": newDocs})
