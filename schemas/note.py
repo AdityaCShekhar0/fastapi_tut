@@ -1,4 +1,4 @@
-def NoteEntity(item) ->dict:
+def NoteEntity(item) ->dict: #converts to mongo dict to python dict
     return {
         "id":str(item["_id"]),
         "title":item["title"],
